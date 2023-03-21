@@ -25,6 +25,18 @@ namespace W10D2.Repositories
             return jobs;
         }
 
+        internal Job GetOneJob(int id)
+        {
+            string sql = @"
+            SELECT
+            *
+            FROM jobs
+            WHERE id = @id;
+            ";
+            Job job = _db.Query<Job>(sql, new { id }).FirstOrDefault();
+            return job;
+        }
+
         internal Job CreateJob(Job jobData)
         {
             string sql = @"
@@ -38,5 +50,6 @@ namespace W10D2.Repositories
             jobData.id = id;
             return jobData;
         }
+
     }
 }

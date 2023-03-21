@@ -20,10 +20,22 @@ namespace W10D2.Services
             return jobs;
         }
 
+        internal Job GetOneJob(int id)
+        {
+            Job job = _repo.GetOneJob(id);
+            return job;
+        }
+
         internal Job CreateJob(Job jobData)
         {
             Job job = _repo.CreateJob(jobData);
             return job;
         }
+
+        internal Job UpdateJob(Job jobData)
+        {
+            throw new Exception("not implemented yet!");
+        }
+
     }
 }

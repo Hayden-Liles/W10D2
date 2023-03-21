@@ -29,6 +29,18 @@ namespace W10D2.Controllers
                 return BadRequest(e.Message);
             }
         }
+        [HttpGet("{id}")]
+        public ActionResult<Job> GetOneJob(int id){
+            try 
+            {
+                Job job = jobsService.GetOneJob(id);
+                return Ok(job);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
         [HttpPost]
         public ActionResult<Job> CreateJob([FromBody] Job jobData){
             try 
@@ -41,6 +53,18 @@ namespace W10D2.Controllers
                 return BadRequest(e.Message);
             }
         }
-
+        [HttpPut("{id}")]
+        public ActionResult<Job> UpdateJob(int id, [FromBody] Job jobData){
+            try 
+            {
+                jobData.id = id;
+                Job job = jobsService.UpdateJob(jobData);
+                return Ok(job);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
     }
 }
