@@ -18,8 +18,7 @@ namespace W10D2.Controllers
         }
 
         [HttpGet]
-        public ActionResult<List<Job>> GetAllJobs()
-        {
+        public ActionResult<List<Job>> GetAllJobs(){
             try 
             {
                 List<Job> jobs = jobsService.getAllJobs();
@@ -42,5 +41,6 @@ namespace W10D2.Controllers
                 return BadRequest(e.Message);
             }
         }
+
     }
 }
