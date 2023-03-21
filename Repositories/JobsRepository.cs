@@ -51,5 +51,17 @@ namespace W10D2.Repositories
             return jobData;
         }
 
+        internal int UpdateJob(Job original)
+        {
+            string sql = @"
+            UPDATE jobs
+            SET
+            title = @title,
+            pay = @pay
+            WHERE id = @id;
+            ";
+            int check = _db.Execute(sql, original);
+            return check;
+        }
     }
 }

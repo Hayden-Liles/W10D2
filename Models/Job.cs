@@ -9,6 +9,6 @@ namespace W10D2.Models
     {
         public int id { get; set; }
         public string title { get; set; }
-        public int pay { get; set; }
+        public int? pay { get; set; }
     }
 }
